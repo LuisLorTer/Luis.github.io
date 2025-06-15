@@ -1,20 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELECTROHOME | Electrodomésticos Premium - Centro Habana</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <title>ELECTROHOME | Electrodomésticos Premium</title>
     <style>
-        /* VARIABLES Y RESET */
+        /* VARIABLES Y RESET OPTIMIZADO */
         :root {
             --primary: #0a2540;
             --secondary: #ffd166;
             --accent: #ef476f;
             --light: #f8f9fa;
             --dark: #1e1e24;
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         * {
@@ -23,41 +22,46 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #fafafa;
-            color: var(--dark);
-            overflow-x: hidden;
-            line-height: 1.7;
+        html {
+            font-size: 62.5%; /* 1rem = 10px */
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 800;
-            line-height: 1.2;
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #fafafa;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         .container {
-            width: 90%;
-            max-width: 1400px;
+            width: 92%;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.6rem;
         }
 
         section {
-            padding: 120px 0;
+            padding: 8rem 0;
         }
 
-        /* HEADER HOLOGRÁFICO */
+        /* HEADER RESPONSIVE */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
-            background: rgba(10, 37, 64, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            padding: 1.6rem 0;
+            background: rgba(10, 37, 64, 0.98);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             border-bottom: 1px solid rgba(255, 209, 102, 0.2);
         }
 
@@ -70,37 +74,50 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
         }
 
         .logo-icon {
             color: var(--secondary);
-            font-size: 2.5rem;
-            animation: pulse 2s infinite;
+            font-size: 2.4rem;
         }
 
         .logo-text {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(to right, #ffd166, #f8961e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
+        }
+
+        /* MENÚ HAMBURGUESA PARA MÓVIL */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 2.4rem;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        nav {
+            transition: var(--transition);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 3rem;
         }
 
         nav a {
             color: var(--light);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             position: relative;
-            padding: 8px 0;
+            padding: 0.8rem 0;
         }
 
         nav a::after {
@@ -120,34 +137,20 @@
 
         .cart-icon {
             position: relative;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             color: var(--light);
+            margin-left: 2rem;
         }
 
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            background: var(--accent);
-            color: white;
-            font-size: 0.8rem;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-
-        /* HERO CON EFECTO PARALLAX */
+        /* HERO ADAPTATIVO */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            background: linear-gradient(135deg, #0a2540 0%, #1a3a6d 100%);
+            padding: 8rem 0;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #0a2540 0%, #1a3a6d 100%);
         }
 
         .hero::before {
@@ -157,401 +160,227 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1773&q=80') center/cover fixed;
+            background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1773&q=80') center/cover;
             opacity: 0.15;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 700px;
-            padding: 40px;
+            max-width: 70rem;
+            padding: 4rem;
             background: rgba(10, 37, 64, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            border-radius: 1.6rem;
             border: 1px solid rgba(255, 209, 102, 0.3);
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(3.2rem, 5vw, 5rem);
             color: white;
-            margin-bottom: 20px;
-            line-height: 1.1;
+            margin-bottom: 2rem;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: clamp(1.6rem, 2vw, 1.9rem);
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
+            margin-bottom: 3rem;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
             background: var(--secondary);
             color: var(--primary);
-            padding: 18px 45px;
-            border-radius: 50px;
+            padding: 1.4rem 3.2rem;
+            border-radius: 5rem;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(255, 209, 102, 0.3);
             border: none;
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 209, 102, 0.4);
+            transform: translateY(-0.3rem);
+            box-shadow: 0 1rem 2rem rgba(255, 209, 102, 0.3);
         }
 
-        /* SECCIÓN CATEGORÍAS 3D */
-        .categories {
-            position: relative;
-            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 3.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--secondary);
-        }
-
-        .section-subtitle {
-            font-size: 1.4rem;
-            color: #6c757d;
-            max-width: 700px;
-            margin: 0 auto;
+        /* GRID RESPONSIVE */
+        .grid {
+            display: grid;
+            gap: 3rem;
         }
 
         .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            perspective: 1500px;
-        }
-
-        .category-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            transform-style: preserve-3d;
-            position: relative;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .category-card:hover {
-            transform: translateY(-20px) rotateX(5deg);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
-        }
-
-        .category-img {
-            height: 70%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .category-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .category-card:hover .category-img img {
-            transform: scale(1.1);
-        }
-
-        .category-content {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 30%;
-            background: white;
-            z-index: 2;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .category-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-        }
-
-        .category-link:hover {
-            gap: 15px;
-        }
-
-        /* PRODUCTOS CON EFECTO NEOMORFISMO */
-        .featured-products {
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr));
         }
 
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr));
         }
 
-        .product-card {
+        .category-card, .product-card {
             background: white;
-            border-radius: 25px;
+            border-radius: 1.6rem;
             overflow: hidden;
-            box-shadow: 
-                15px 15px 30px rgba(0, 0, 0, 0.1),
-                -15px -15px 30px rgba(255, 255, 255, 0.7);
+            box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.08);
             transition: var(--transition);
-            position: relative;
         }
 
-        .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 
-                20px 20px 40px rgba(0, 0, 0, 0.12),
-                -20px -20px 40px rgba(255, 255, 255, 0.8);
+        .category-card:hover, .product-card:hover {
+            transform: translateY(-1rem);
+            box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.12);
         }
 
-        .product-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 700;
-            z-index: 3;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 15px rgba(239, 71, 111, 0.3);
-        }
-
-        .product-img {
-            height: 280px;
+        .category-img, .product-img {
+            aspect-ratio: 4/3;
             overflow: hidden;
-            position: relative;
         }
 
-        .product-img img {
+        .category-img img, .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
 
+        .category-card:hover .category-img img,
         .product-card:hover .product-img img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
-        .product-info {
-            padding: 30px;
+        .category-content, .product-info {
+            padding: 2.4rem;
         }
 
-        .product-title {
-            font-size: 1.8rem;
+        .category-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
             color: var(--primary);
-            margin-bottom: 15px;
         }
 
-        .product-description {
+        /* SECCIÓN TÍTULOS */
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.8rem, 4vw, 4rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.6rem, 2vw, 1.8rem);
             color: #6c757d;
-            margin-bottom: 20px;
+            max-width: 70rem;
+            margin: 0 auto;
         }
 
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-price {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        .action-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--light);
-            color: var(--primary);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .action-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        /* UBICACIÓN CON MAPA 3D */
+        /* UBICACIÓN RESPONSIVE */
         .location {
-            position: relative;
             padding: 0;
-            height: 80vh;
         }
 
         .location-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .location-info {
             background: linear-gradient(135deg, var(--primary) 0%, #1a3a6d 100%);
             color: white;
-            padding: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 5rem 3rem;
         }
 
         .location-title {
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: clamp(2.6rem, 4vw, 3.6rem);
+            margin-bottom: 2.5rem;
             color: white;
-        }
-
-        .location-details {
-            margin-bottom: 40px;
         }
 
         .detail-item {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
             align-items: flex-start;
         }
 
         .detail-icon {
             color: var(--secondary);
-            font-size: 1.5rem;
-            margin-top: 5px;
+            font-size: 1.8rem;
+            min-width: 2.4rem;
         }
 
         .map-container {
-            height: 100%;
+            aspect-ratio: 16/9;
             position: relative;
-            overflow: hidden;
         }
 
         .map-container iframe {
             width: 100%;
             height: 100%;
             border: none;
-            filter: grayscale(0.2) contrast(1.1);
         }
 
-        .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(10, 37, 64, 0.3) 0%, rgba(26, 58, 109, 0.5) 100%);
-            pointer-events: none;
-        }
-
-        /* FOOTER DE LUJO */
+        /* FOOTER RESPONSIVE */
         footer {
             background: var(--primary);
             color: white;
-            padding: 100px 0 50px;
-            position: relative;
+            padding: 6rem 0 3rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(min(25rem, 100%), 1fr));
+            gap: 4rem;
+            margin-bottom: 5rem;
         }
 
         .footer-brand .logo {
-            margin-bottom: 25px;
+            margin-bottom: 2rem;
         }
 
         .footer-description {
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 30px;
+            margin-bottom: 2.5rem;
+            font-size: 1.5rem;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 1.2rem;
         }
 
         .social-link {
-            width: 50px;
-            height: 50px;
+            width: 4rem;
+            height: 4rem;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             transition: var(--transition);
         }
 
         .social-link:hover {
             background: var(--secondary);
             color: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-0.3rem);
         }
 
         .footer-title {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 1rem;
         }
 
         .footer-title::after {
@@ -559,14 +388,14 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 4rem;
+            height: 0.3rem;
             background: var(--secondary);
         }
 
         .footer-links li {
             list-style: none;
-            margin-bottom: 15px;
+            margin-bottom: 1.2rem;
         }
 
         .footer-links a {
@@ -574,62 +403,87 @@
             text-decoration: none;
             transition: var(--transition);
             display: flex;
-            gap: 10px;
+            gap: 0.8rem;
             align-items: center;
+            font-size: 1.4rem;
         }
 
         .footer-links a:hover {
             color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .footer-links a i {
-            color: var(--secondary);
-            width: 25px;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 50px;
+            padding-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
+            font-size: 1.4rem;
         }
 
-        /* ANIMACIONES */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1200px) {
-            .location-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .location-info {
-                padding: 60px 40px;
-            }
-        }
-
+        /* MEDIA QUERIES PARA DISPOSITIVOS MÓVILES */
         @media (max-width: 768px) {
             section {
-                padding: 80px 0;
+                padding: 6rem 0;
             }
             
-            .hero h1 {
-                font-size: 3rem;
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 32rem;
+                height: 100vh;
+                background: var(--primary);
+                padding: 8rem 3rem 3rem;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
             }
             
             nav ul {
-                gap: 20px;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .hero-content {
+                padding: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .cart-icon {
+                margin-left: auto;
+                margin-right: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 2.4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header de Lujo -->
+    <!-- Header Responsive -->
     <header>
         <div class="container">
             <div class="header-grid">
@@ -638,7 +492,11 @@
                     <div class="logo-text">ELECTROHOME</div>
                 </a>
                 
-                <nav>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="main-nav">
                     <ul>
                         <li><a href="#">Inicio</a></li>
                         <li><a href="#">Productos</a></li>
@@ -650,39 +508,38 @@
                 
                 <div class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">3</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section con Efecto Parallax -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Electrodomésticos de Primera en el Corazón de Centro Habana</h1>
+                <h1>Electrodomésticos Premium en Centro Habana</h1>
                 <p>Distribuidores oficiales con garantía certificada y servicio técnico especializado. Las mejores marcas a precios competitivos.</p>
                 <a href="#" class="btn">Explorar Colección <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Categorías con Efecto 3D -->
+    <!-- Categorías -->
     <section class="categories">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Nuestras Categorías</h2>
-                <p class="section-subtitle">Descubre nuestra selección premium de electrodomésticos para cada espacio de tu hogar</p>
+                <p class="section-subtitle">Descubre nuestra selección premium de electrodomésticos</p>
             </div>
             
-            <div class="categories-grid">
+            <div class="grid categories-grid">
                 <div class="category-card">
                     <div class="category-img">
                         <img src="https://images.unsplash.com/photo-1581093458799-ef778c1b0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Cocina">
                     </div>
                     <div class="category-content">
                         <h3 class="category-title">Cocina Profesional</h3>
-                        <a href="#" class="category-link">Explorar <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn">Explorar</a>
                     </div>
                 </div>
                 
@@ -692,7 +549,7 @@
                     </div>
                     <div class="category-content">
                         <h3 class="category-title">Refrigeración</h3>
-                        <a href="#" class="category-link">Explorar <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn">Explorar</a>
                     </div>
                 </div>
                 
@@ -702,55 +559,41 @@
                     </div>
                     <div class="category-content">
                         <h3 class="category-title">Lavado y Secado</h3>
-                        <a href="#" class="category-link">Explorar <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn">Explorar</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Productos Destacados con Neomorfismo -->
-    <section class="featured-products">
+    <!-- Productos -->
+    <section class="products">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Productos Destacados</h2>
-                <p class="section-subtitle">Selección de los electrodomésticos más vendidos esta temporada</p>
+                <p class="section-subtitle">Los electrodomésticos más vendidos esta temporada</p>
             </div>
             
-            <div class="products-grid">
+            <div class="grid products-grid">
                 <div class="product-card">
-                    <div class="product-badge">Nuevo</div>
                     <div class="product-img">
                         <img src="https://images.unsplash.com/photo-1577338559076-37e0adfcfd0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Refrigerador Samsung">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Refrigerador Samsung Family Hub</h3>
-                        <p class="product-description">Tecnología SpaceMax™ con pantalla inteligente y control por voz</p>
-                        <div class="product-meta">
-                            <div class="product-price">$1,499</div>
-                            <div class="product-actions">
-                                <button class="action-btn"><i class="fas fa-heart"></i></button>
-                                <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
+                        <h3 class="category-title">Refrigerador Samsung</h3>
+                        <p>Tecnología SpaceMax™ con pantalla inteligente</p>
+                        <a href="#" class="btn">Ver Detalles</a>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-badge">Oferta</div>
                     <div class="product-img">
                         <img src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Cocina Industrial">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Cocina Industrial Mabe</h3>
-                        <p class="product-description">6 quemadores profesionales con horno doble y sistema de convección</p>
-                        <div class="product-meta">
-                            <div class="product-price">$1,299</div>
-                            <div class="product-actions">
-                                <button class="action-btn"><i class="fas fa-heart"></i></button>
-                                <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
+                        <h3 class="category-title">Cocina Industrial Mabe</h3>
+                        <p>6 quemadores profesionales con horno doble</p>
+                        <a href="#" class="btn">Ver Detalles</a>
                     </div>
                 </div>
                 
@@ -759,64 +602,57 @@
                         <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Smart TV">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Smart TV Sony Bravia 75"</h3>
-                        <p class="product-description">4K OLED con procesador Cognitive XR y sonido Dolby Atmos</p>
-                        <div class="product-meta">
-                            <div class="product-price">$1,799</div>
-                            <div class="product-actions">
-                                <button class="action-btn"><i class="fas fa-heart"></i></button>
-                                <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
+                        <h3 class="category-title">Smart TV Sony 75"</h3>
+                        <p>4K OLED con procesador Cognitive XR</p>
+                        <a href="#" class="btn">Ver Detalles</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ubicación con Mapa 3D -->
+    <!-- Ubicación -->
     <section class="location">
-        <div class="location-container">
-            <div class="location-info">
-                <h2 class="location-title">Nuestra Tienda en Centro Habana</h2>
-                
-                <div class="location-details">
+        <div class="container">
+            <div class="location-container">
+                <div class="location-info">
+                    <h2 class="location-title">Nuestra Tienda en Centro Habana</h2>
+                    
                     <div class="detail-item">
                         <i class="fas fa-map-marker-alt detail-icon"></i>
                         <div>
-                            <h4>Dirección</h4>
-                            <p>Avenida de Italia #456, entre San Rafael y Galiano</p>
+                            <h3>Dirección</h3>
+                            <p>Avenida de Italia #456, Centro Habana</p>
                         </div>
                     </div>
                     
                     <div class="detail-item">
                         <i class="fas fa-clock detail-icon"></i>
                         <div>
-                            <h4>Horario</h4>
-                            <p>Lunes a Sábado: 9:00 AM - 8:00 PM<br>Domingos: 10:00 AM - 4:00 PM</p>
+                            <h3>Horario</h3>
+                            <p>Lunes a Sábado: 9:00 AM - 8:00 PM</p>
                         </div>
                     </div>
                     
                     <div class="detail-item">
                         <i class="fas fa-phone-alt detail-icon"></i>
                         <div>
-                            <h4>Contacto</h4>
-                            <p>+53 7 123 4567<br>ventas@electrohomehabana.com</p>
+                            <h3>Contacto</h3>
+                            <p>+53 7 123 4567</p>
                         </div>
                     </div>
+                    
+                    <a href="#" class="btn"><i class="fas fa-directions"></i> Cómo Llegar</a>
                 </div>
                 
-                <a href="#" class="btn"><i class="fas fa-directions"></i> Cómo Llegar</a>
-            </div>
-            
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234253.0462825565!2d-82.5152986!3d23.113592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd7f8e3f0a5549%3A0x3f4c7bc7d7a6e8d1!2sCentro%20Habana%2C%20La%20Habana%2C%20Cuba!5e0!3m2!1ses!2sus!4v1686789000000!5m2!1ses!2sus" allowfullscreen></iframe>
-                <div class="map-overlay"></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234253.0462825565!2d-82.5152986!3d23.113592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd7f8e3f0a5549%3A0x3f4c7bc7d7a6e8d1!2sCentro%20Habana%2C%20La%20Habana%2C%20Cuba!5e0!3m2!1ses!2sus!4v1686789000000!5m2!1ses!2sus" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Premium -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -825,82 +661,76 @@
                         <i class="fas fa-home logo-icon"></i>
                         <div class="logo-text">ELECTROHOME</div>
                     </div>
-                    <p class="footer-description">Más de 15 años ofreciendo los mejores electrodomésticos en Centro Habana con garantía certificada y servicio técnico especializado.</p>
+                    <p class="footer-description">Distribuidores oficiales con garantía certificada y servicio técnico especializado.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h3 class="footer-title">Enlaces Rápidos</h3>
+                <div>
+                    <h3 class="footer-title">Enlaces</h3>
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Productos</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Ofertas</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ubicación</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Servicio Técnico</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
-                    <h3 class="footer-title">Categorías</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cocinas</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Refrigeración</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Lavado</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Climatización</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Televisores</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
+                <div>
                     <h3 class="footer-title">Contacto</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. Italia #456, Centro Habana</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Centro Habana</a></li>
                         <li><a href="tel:+5371234567"><i class="fas fa-phone-alt"></i> +53 7 123 4567</a></li>
-                        <li><a href="mailto:ventas@electrohomehabana.com"><i class="fas fa-envelope"></i> ventas@electrohomehabana.com</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> L-S: 9:00 AM - 8:00 PM</a></li>
+                        <li><a href="mailto:ventas@electrohome.com"><i class="fas fa-envelope"></i> ventas@electrohome.com</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2024 ELECTROHOME Centro Habana. Todos los derechos reservados. | Diseñado con pasión en La Habana</p>
+                <p>&copy; 2024 ELECTROHOME - Centro Habana</p>
             </div>
         </div>
     </footer>
 
+    <!-- Font Awesome (solo iconos necesarios) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- Script de funcionalidad móvil -->
     <script>
-        // Efecto de paralaje para el hero
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            document.querySelector('.hero').style.backgroundPositionY = -scrollPosition * 0.5 + 'px';
+        // Menú móvil
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            menuToggle.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Animación al hacer scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Scroll suave para todos los navegadores
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.category-card, .product-card').forEach(el => {
-            observer.observe(el);
         });
-
-        // Contador para icono de carrito
-        const cartCount = document.querySelector('.cart-count');
-        let count = 3;
-        
-        setInterval(() => {
-            count = (count % 5) + 1;
-            cartCount.textContent = count;
-        }, 3000);
     </script>
 </body>
 </html>
